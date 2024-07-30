@@ -1,0 +1,31 @@
+.new-list-button {
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-bottom: 32px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.list-title {
+  width: 400px;
+  padding: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.edit-button {
+  margin-right: 16px;
+}
+
+.delete-button {
+  border-color: #a70000;
+  background-color: #ffbaba;
+}
