@@ -1,4 +1,4 @@
-.litst-item-input {
+.litstItemInput {
   height: 32px;
   width: 384px;
   font-size: 1rem;
@@ -8,14 +8,14 @@
   padding: 4px;
 }
 
-.add-button {
+.addButton {
   padding-left: 48px;
   padding-right: 48px;
 }
-.items-list {
+.itemsList {
   margin-left: 16px;
 }
-.list-item-add-wrapper {
+.listItemAddWrapper {
   margin-bottom: 48px;
 }
 
@@ -24,7 +24,7 @@
   flex-direction: row;
   margin-bottom: 8px;
 }
-.cancel-button {
+.cancelButton {
   width: 16px;
   height: 16px;
   font-weight: bold;
@@ -34,12 +34,12 @@
   margin-right: 16px;
 }
 
-.item-name {
+.itemName {
   width: 480px;
   outline: none;
   border: 0;
 }
 
-.list-item-title {
+.listItemTitle {
   margin-bottom: 24px;
 }
