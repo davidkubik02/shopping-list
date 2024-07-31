@@ -49,7 +49,7 @@ function ListItem() {
           onChange={(e) => setItemName(e.target.value)}
           value={itemName}
           type="text"
-          className={styles.litstItemInput}
+          className="input"
           ref={inputRef}
         />
         <button className={`button ${styles.addButton}`} onClick={addHandle}>

@@ -1,0 +1,17 @@
+.listCreationTitle {
+  margin-bottom: 24px;
+}
+
+.listCreationInputWwrapper {
+  margin-bottom: 32px;
+}
+
+.listCreationInputLabel {
+  margin-right: 16px;
+}
+
+.createButton {
+  height: 42px;
+  padding: 0 32px;
+  margin-right: 12px;
+}
