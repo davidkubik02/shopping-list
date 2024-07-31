@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from "../listItem.module.css";
 function Item({
   info,
   remove,
@@ -13,15 +13,15 @@ function Item({
   ) => void;
 }) {
   return (
-    <li className="item">
+    <li className={styles.item}>
       <button
-        className="button cancel-button"
+        className={`button ${styles.cancelButton}`}
         onClick={() => remove(info.index)}
       >
         x
       </button>
       <input
-        className="item-name"
+        className={styles.itemName}
         onChange={(event) => {
           changeHandle(info.index, event);
         }}

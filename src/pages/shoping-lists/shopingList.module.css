@@ -1,16 +1,20 @@
-.new-list-button {
+.shopingListsTitle {
+  margin-bottom: 24px;
+}
+
+.newListButton {
   padding-left: 32px;
   padding-right: 32px;
   margin-bottom: 32px;
 }
 
-.list-item {
+.listItem {
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
 }
 
-.list-title {
+.listTitle {
   width: 400px;
   padding: 4px;
   overflow: hidden;
@@ -21,11 +25,11 @@
   text-decoration: underline;
 }
 
-.edit-button {
+.editButton {
   margin-right: 16px;
 }
 
-.delete-button {
+.deleteButton {
   border-color: #a70000;
   background-color: #ffbaba;
 }

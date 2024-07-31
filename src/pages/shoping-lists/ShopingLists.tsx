@@ -1,4 +1,4 @@
-import "./shoping-list.css";
+import styles from "./shopingList.module.css";
 
 function ShopingLists() {
   return (
@@ -6,43 +6,45 @@ function ShopingLists() {
       {/* header */}
       <header>
         <h1 className="main-title">Můj košík</h1>
-        <nav>Nákupní seznamy</nav>
       </header>
       {/* header */}
 
-      <button className="button new-list-button">Vytvořit</button>
+      <div className={`page-title ${styles.shopingListsTitle}`}>
+        Nákupní seznamy
+      </div>
+      <button className={`button ${styles.newListButton}`}>Vytvořit</button>
       <div>
-        <div className="list-item">
-          <div className="list-title">
+        <div className={styles.listItem}>
+          <div className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </div>
-          <button className="button edit-button">Upravit</button>
-          <button className="button delete-button">Smazat</button>
+          <button className={`button ${styles.editButton}`}>Upravit</button>
+          <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
-        <div className="list-item">
-          <div className="list-title">
+        <div className={styles.listItem}>
+          <div className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </div>
-          <button className="button edit-button">Upravit</button>
-          <button className="button delete-button">Smazat</button>
+          <button className={`button ${styles.editButton}`}>Upravit</button>
+          <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
-        <div className="list-item">
-          <div className="list-title">
+        <div className={styles.listItem}>
+          <div className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </div>
-          <button className="button edit-button">Upravit</button>
-          <button className="button delete-button">Smazat</button>
+          <button className={`button ${styles.editButton}`}>Upravit</button>
+          <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
-        <div className="list-item">
-          <div className="list-title">
+        <div className={styles.listItem}>
+          <div className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </div>
-          <button className="button edit-button">Upravit</button>
-          <button className="button delete-button">Smazat</button>
+          <button className={`button ${styles.editButton}`}>Upravit</button>
+          <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
       </div>
     </div>
