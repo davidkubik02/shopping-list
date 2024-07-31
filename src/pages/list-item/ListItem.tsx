@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./list-item.css";
+import styles from "./listItem.module.css";
 import Item from "./item/Item";
 import { useRef } from "react";
 
@@ -41,20 +41,22 @@ function ListItem() {
         <nav>{"Nákupní seznamy >Položky seznamu"}</nav>
       </header>
       {/* header */}
-      <div className="page-title list-item-title">Položky seznamu</div>
-      <div className="list-item-add-wrapper">
+      <div className={`page-title ${styles.listItemTitle}`}>
+        Položky seznamu
+      </div>
+      <div className={styles.listItemAddWrapper}>
         <input
           onChange={(e) => setItemName(e.target.value)}
           value={itemName}
           type="text"
-          className="litst-item-input"
+          className={styles.litstItemInput}
           ref={inputRef}
         />
-        <button className="button add-button" onClick={addHandle}>
+        <button className={`button ${styles.addButton}`} onClick={addHandle}>
           Přidat
         </button>
       </div>
-      <ul className="items-list">
+      <ul className={styles.itemsList}>
         {items.map((name, index) => {
           return (
             <Item
