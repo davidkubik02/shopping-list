@@ -25,6 +25,11 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+.delete-button {
+  border-color: #a70000;
+  background-color: #ffbaba;
+}
+
 header {
   margin-bottom: 24px;
 }
@@ -32,4 +37,14 @@ header {
 .page-title {
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+.input {
+  height: 28px;
+  width: 240px;
+  font-size: 1rem;
+  margin-right: 16px;
+  outline: none;
+  border: 1px solid #000;
+  padding: 4px;
 }

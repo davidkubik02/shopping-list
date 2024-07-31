@@ -47,7 +47,7 @@ function ListItem() {
           onChange={(e) => setItemName(e.target.value)}
           value={itemName}
           type="text"
-          className="litst-item-input"
+          className="input"
           ref={inputRef}
         />
         <button className="button add-button" onClick={addHandle}>
