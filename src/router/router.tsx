@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <ListCreation />,
       },
       {
-        path: "/shoping-lists/new/:id",
+        path: "/shoping-lists/edit/:id",
         element: <ListCreation />,
       },
       {

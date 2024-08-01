@@ -17,7 +17,7 @@ function ShopingLists() {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </Link>
-          <Link to={"./new/1"} className={`button ${styles.editButton}`}>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
             Upravit
           </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
@@ -27,7 +27,7 @@ function ShopingLists() {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </Link>
-          <Link to={"./new/1"} className={`button ${styles.editButton}`}>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
             Upravit
           </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
@@ -37,7 +37,7 @@ function ShopingLists() {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </Link>
-          <Link to={"./new/1"} className={`button ${styles.editButton}`}>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
             Upravit
           </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
@@ -47,7 +47,7 @@ function ShopingLists() {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
           </Link>
-          <Link to={"./new/1"} className={`button ${styles.editButton}`}>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
             Upravit
           </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
