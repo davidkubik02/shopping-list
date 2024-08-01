@@ -1,11 +1,11 @@
 import "./App.css";
-import ShopingLists from "./pages/shoping-lists/ShopingLists";
-import ListItem from "./pages/list-item/ListItem";
-import ListCreation from "./pages/list-creation/ListCreation";
+import Header from "./components/header/Header";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="page-container">
-      <ListCreation />
+      <Header />
+      <Outlet />
     </div>
   );
 }

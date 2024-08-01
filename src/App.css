@@ -18,8 +18,15 @@
   border: 1px double #000;
   background-color: #fff;
   padding: 8px;
-  height: 32px;
+  height: 28px;
+  width: 120px;
   cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
 }
 .button:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);

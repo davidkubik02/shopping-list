@@ -1,49 +1,55 @@
+import { Link } from "react-router-dom";
 import styles from "./shopingList.module.css";
 
 function ShopingLists() {
   return (
     <div>
-      {/* header */}
-      <header>
-        <h1 className="main-title">Můj košík</h1>
-      </header>
-      {/* header */}
-
       <div className={`page-title ${styles.shopingListsTitle}`}>
         Nákupní seznamy
       </div>
-      <button className={`button ${styles.newListButton}`}>Vytvořit</button>
+      <Link className={`button ${styles.newListButton}`} to={"./new"}>
+        Vytvořit
+      </Link>
+
       <div>
         <div className={styles.listItem}>
-          <div className={styles.listTitle}>
+          <Link to={"./123"} className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
-          </div>
-          <button className={`button ${styles.editButton}`}>Upravit</button>
+          </Link>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
+            Upravit
+          </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
         <div className={styles.listItem}>
-          <div className={styles.listTitle}>
+          <Link to={"./123"} className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
-          </div>
-          <button className={`button ${styles.editButton}`}>Upravit</button>
+          </Link>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
+            Upravit
+          </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
         <div className={styles.listItem}>
-          <div className={styles.listTitle}>
+          <Link to={"./123"} className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
-          </div>
-          <button className={`button ${styles.editButton}`}>Upravit</button>
+          </Link>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
+            Upravit
+          </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
         <div className={styles.listItem}>
-          <div className={styles.listTitle}>
+          <Link to={"./123"} className={styles.listTitle}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
             alias laboriosam impedit minus eveniet.
-          </div>
-          <button className={`button ${styles.editButton}`}>Upravit</button>
+          </Link>
+          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
+            Upravit
+          </Link>
           <button className={`button ${styles.deleteButton}`}>Smazat</button>
         </div>
       </div>

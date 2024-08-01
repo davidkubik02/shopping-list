@@ -35,12 +35,6 @@ function ListItem() {
   };
   return (
     <div>
-      {/* header */}
-      <header>
-        <h1 className="main-title">Můj košík</h1>
-        <nav>{"Nákupní seznamy >Položky seznamu"}</nav>
-      </header>
-      {/* header */}
       <div className={`page-title ${styles.listItemTitle}`}>
         Položky seznamu
       </div>
