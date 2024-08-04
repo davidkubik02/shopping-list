@@ -16,12 +16,7 @@ function Item({
   updateData: (isDataUpdated: boolean) => void;
 }) {
   const [itemName, setitemName] = useState<string>(info.name);
-  const [isSaved, setIsSaved] = useState<boolean>(true);
-
-  const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setitemName(e.target.value);
-    setIsSaved(info.name === e.target.value ? true : false);
-  };
+  const [isChanging, setIsChanging] = useState<boolean>(false);
 
   const saveHandle = () => {
     if (!listName) {
@@ -32,18 +27,28 @@ function Item({
       window.alert("Jméno položky nemůže být prázdné");
       return;
     }
+    if (itemName === info.name) {
+      setIsChanging(false);
+      return;
+    }
+
     if (itemExists(itemName)) {
       window.alert(`Položka "${itemName}" již existuje!`);
       return;
     }
     updateItemInList(listName, info.name, itemName);
-    setIsSaved(true);
+    setIsChanging(false);
     updateData(false);
   };
   const removeItemHandle = (itemName: string): void => {
     if (!listName) return;
     deleteListItem(listName, itemName);
     updateData(false);
+  };
+
+  const cancelHandle = () => {
+    setIsChanging(false);
+    setitemName(info.name);
   };
 
   return (
@@ -54,19 +59,33 @@ function Item({
       >
         x
       </button>
-      {/* toDo upravit saveButton */}
-      {!isSaved ? (
+
+      {isChanging ? (
+        <div>
+          <button className={`button`} onClick={saveHandle}>
+            Uložit
+          </button>
+          <button className={`button`} onClick={cancelHandle}>
+            Zrušit
+          </button>
+        </div>
+      ) : (
         <button
-          className={`button ${styles.cancelButton}`}
-          onClick={saveHandle}
+          className={`button`}
+          onClick={() => {
+            setIsChanging(true);
+          }}
         >
-          O
+          Upravit
         </button>
-      ) : undefined}
+      )}
       <input
         className={styles.itemName}
-        onChange={changeHandle}
+        onChange={(e) => {
+          setitemName(e.target.value);
+        }}
         value={itemName}
+        readOnly={!isChanging}
       />
     </li>
   );

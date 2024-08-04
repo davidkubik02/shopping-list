@@ -45,6 +45,10 @@ function ListCreation() {
     navigate("/shoping-lists");
   };
   const editListHandle = (listName: string): void => {
+    if (name === id) {
+      navigate("/shoping-lists");
+      return;
+    }
     if (listExists(name)) {
       window.alert("Tento list již existuje!");
       return;
