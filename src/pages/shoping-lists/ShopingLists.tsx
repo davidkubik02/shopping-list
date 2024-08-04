@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import styles from "./shopingList.module.css";
+import { useEffect, useState } from "react";
+import { deleteList, getAllLists } from "../../localStorage/localStorage";
 
 function ShopingLists() {
+  const [listsArray, setListsArray] = useState<string[]>([]);
+  useEffect(() => {
+    setListsArray(getAllLists());
+  }, []);
+  const deleteListHandle = (listName: string) => {
+    if (!window.confirm(`Vážně chcete SMAZAT seznam "${listName}"`)) {
+      return;
+    }
+    deleteList(listName);
+    setListsArray(getAllLists());
+  };
   return (
     <div>
       <div className={`page-title ${styles.shopingListsTitle}`}>
@@ -12,46 +25,27 @@ function ShopingLists() {
       </Link>
 
       <div>
-        <div className={styles.listItem}>
-          <Link to={"./123"} className={styles.listTitle}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
-            alias laboriosam impedit minus eveniet.
-          </Link>
-          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
-            Upravit
-          </Link>
-          <button className={`button ${styles.deleteButton}`}>Smazat</button>
-        </div>
-        <div className={styles.listItem}>
-          <Link to={"./123"} className={styles.listTitle}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
-            alias laboriosam impedit minus eveniet.
-          </Link>
-          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
-            Upravit
-          </Link>
-          <button className={`button ${styles.deleteButton}`}>Smazat</button>
-        </div>
-        <div className={styles.listItem}>
-          <Link to={"./123"} className={styles.listTitle}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
-            alias laboriosam impedit minus eveniet.
-          </Link>
-          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
-            Upravit
-          </Link>
-          <button className={`button ${styles.deleteButton}`}>Smazat</button>
-        </div>
-        <div className={styles.listItem}>
-          <Link to={"./123"} className={styles.listTitle}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui velit
-            alias laboriosam impedit minus eveniet.
-          </Link>
-          <Link to={"./edit/1"} className={`button ${styles.editButton}`}>
-            Upravit
-          </Link>
-          <button className={`button ${styles.deleteButton}`}>Smazat</button>
-        </div>
+        {listsArray.map((listName) => {
+          return (
+            <div className={styles.listItem} key={listName}>
+              <Link to={`./${listName}`} className={styles.listTitle}>
+                {listName}
+              </Link>
+              <Link
+                to={`./edit/${listName}`}
+                className={`button ${styles.editButton}`}
+              >
+                Upravit
+              </Link>
+              <button
+                onClick={() => deleteListHandle(listName)}
+                className={`button ${styles.deleteButton}`}
+              >
+                Smazat
+              </button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
