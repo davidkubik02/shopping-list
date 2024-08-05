@@ -18,7 +18,7 @@ function ListCreation() {
     if (listExists(id)) {
       setName(id);
     } else {
-      navigate("/shoping-lists/new");
+      navigate("/shopping-list/new");
     }
   }, [id]);
 
@@ -42,11 +42,11 @@ function ListCreation() {
     };
     saveList(list);
     setName("");
-    navigate("/shoping-lists");
+    navigate("/shopping-list");
   };
   const editListHandle = (listName: string): void => {
     if (name === id) {
-      navigate("/shoping-lists");
+      navigate("/shopping-list");
       return;
     }
     if (listExists(name)) {
@@ -54,7 +54,7 @@ function ListCreation() {
       return;
     }
     updateListName(listName, name);
-    navigate("/shoping-lists");
+    navigate("/shopping-list");
   };
   const deleteListHandle = (): void => {
     if (id) {
@@ -62,7 +62,7 @@ function ListCreation() {
         return;
       }
       deleteList(id);
-      navigate("/shoping-lists");
+      navigate("/shopping-list");
     }
   };
 

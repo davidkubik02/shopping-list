@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "./shopingList.module.css";
+import styles from "./shoppingList.module.css";
 import { useEffect, useState } from "react";
 import { deleteList, getAllLists } from "../../localStorage/localStorage";
 
-function ShopingLists() {
+function ShoppingList() {
   const [listsArray, setListsArray] = useState<string[]>([]);
   useEffect(() => {
     setListsArray(getAllLists());
@@ -17,7 +17,7 @@ function ShopingLists() {
   };
   return (
     <div>
-      <div className={`page-title ${styles.shopingListsTitle}`}>
+      <div className={`page-title ${styles.shoppingListTitle}`}>
         Nákupní seznamy
       </div>
       <Link className={`button ${styles.newListButton}`} to={"./new"}>
@@ -53,4 +53,4 @@ function ShopingLists() {
   );
 }
 
-export default ShopingLists;
+export default ShoppingList;

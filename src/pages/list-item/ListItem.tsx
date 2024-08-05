@@ -141,7 +141,7 @@ function ListItem() {
       ) : (
         <div>
           {"Seznam nebyl nalezen, "}
-          <Link to={"/shoping-lists"}>Zpět</Link>
+          <Link to={"/shopping-list"}>Zpět</Link>
         </div>
       )}
     </div>
