@@ -73,7 +73,8 @@ header {
 
 .input {
   height: 42px;
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
   font-size: 1rem;
   outline: none;
   border: 1px solid var(--light-gray);
@@ -92,6 +93,7 @@ header {
 }
 
 .main-title {
+  white-space: nowrap;
   color: var(--soft-white);
   text-decoration: none;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
