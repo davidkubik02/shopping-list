@@ -7,31 +7,52 @@
   padding: 0 32px;
   margin-bottom: 32px;
 }
+.listsWrapper {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
 
 .listItem {
   display: flex;
   flex-direction: row;
-  margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 48px;
+}
+
+.listItem:nth-child(even) {
+  background-color: var(--soft-white);
+}
+.listItem:nth-child(odd) {
+  background-color: var(--white);
 }
 
 .listTitle {
-  width: 400px;
   padding: 4px;
+  width: 100px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   cursor: pointer;
-  color: blue;
-  text-decoration: underline;
+  color: var(--gray);
+  text-decoration: none;
+  flex: 1;
+}
+
+.listTitle:hover {
+  color: var(--black);
+}
+
+.buttonsWrapper {
+  display: flex;
 }
 
 .editButton {
   margin-right: 16px;
+
   width: 80px;
 }
 
 .deleteButton {
-  border-color: #a70000;
-  background-color: #ffbaba;
   width: 80px;
 }

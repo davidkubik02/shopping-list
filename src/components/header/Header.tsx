@@ -1,14 +1,11 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const location = useLocation();
   return (
-    <header>
-      <h1 className="main-title">Můj košík</h1>
-      {location.pathname !== "/shoping-lists" ? (
-        <Link to={"/shoping-lists"}>Nákupní seznamy</Link>
-      ) : undefined}
+    <header className="header">
+      <Link className="main-title" to={"/shoping-lists"}>
+        <h1>Můj košík</h1>
+      </Link>
     </header>
   );
 }

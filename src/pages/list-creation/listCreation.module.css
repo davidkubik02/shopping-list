@@ -4,10 +4,14 @@
 
 .listCreationInputWwrapper {
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .listCreationInputLabel {
-  margin-right: 16px;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .buttonWrapper {

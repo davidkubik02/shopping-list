@@ -1,4 +1,4 @@
-import { createBrowserRouter, Link } from "react-router-dom";
+import { createBrowserRouter, Link, Navigate } from "react-router-dom";
 import App from "../App.tsx";
 import {} from "react-router-dom";
 import ShopingLists from "../pages/shoping-lists/ShopingLists.tsx";
@@ -9,6 +9,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      { path: "/", element: <Navigate to={"/shoping-lists"} replace={true} /> },
       {
         path: "/shoping-lists",
         element: <ShopingLists />,

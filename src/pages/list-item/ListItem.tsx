@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./listItem.module.css";
 import Item from "./item/Item";
 import { useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   getList,
   List,
@@ -70,7 +70,7 @@ function ListItem() {
               onChange={(e) => setItemName(e.target.value)}
               value={itemName}
               type="text"
-              className="input"
+              className={`input ${styles.listItemInput}`}
               ref={inputRef}
             />
             <button
@@ -80,7 +80,7 @@ function ListItem() {
               Přidat
             </button>
           </div>
-          <ul className={styles.itemsList}>
+          <ul>
             {items.map((name, index) => {
               return (
                 <Item
@@ -95,7 +95,10 @@ function ListItem() {
           </ul>
         </div>
       ) : (
-        <div>Seznam nebyl nalezen</div>
+        <div>
+          {"Seznam nebyl nalezen, "}
+          <Link to={"/shoping-lists"}>Zpět</Link>
+        </div>
       )}
     </div>
   );

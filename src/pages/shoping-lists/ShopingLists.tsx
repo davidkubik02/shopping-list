@@ -24,25 +24,27 @@ function ShopingLists() {
         Vytvořit
       </Link>
 
-      <div>
+      <div className={styles.listsWrapper}>
         {listsArray.map((listName) => {
           return (
             <div className={styles.listItem} key={listName}>
               <Link to={`./${listName}`} className={styles.listTitle}>
                 {listName}
               </Link>
-              <Link
-                to={`./edit/${listName}`}
-                className={`button ${styles.editButton}`}
-              >
-                Upravit
-              </Link>
-              <button
-                onClick={() => deleteListHandle(listName)}
-                className={`button ${styles.deleteButton}`}
-              >
-                Smazat
-              </button>
+              <div className={styles.buttonsWrapper}>
+                <Link
+                  to={`./edit/${listName}`}
+                  className={`button ${styles.editButton}`}
+                >
+                  Upravit
+                </Link>
+                <button
+                  onClick={() => deleteListHandle(listName)}
+                  className={`button delete-button ${styles.deleteButton}`}
+                >
+                  Smazat
+                </button>
+              </div>
             </div>
           );
         })}
