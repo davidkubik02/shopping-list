@@ -64,39 +64,43 @@ function Item({
         value={itemName}
         readOnly={!isEditing}
       />
-
-      <div className={styles.button}>
-        {isEditing ? (
-          <div className={styles.editButtons}>
-            <button className={`button`} onClick={saveHandle}>
-              Uložit
-            </button>
+      <div className={styles.buttonsWrapper}>
+        <div className={styles.editButtonsWrapper}>
+          {isEditing ? (
+            <>
+              <button
+                className={`button ${styles.saveButton}`}
+                onClick={saveHandle}
+              >
+                Uložit
+              </button>
+              <button
+                className={`button ${styles.cancelButton}`}
+                onClick={cancelHandle}
+              >
+                Zrušit
+              </button>
+            </>
+          ) : (
             <button
-              className={`button ${styles.cancelButton}`}
-              onClick={cancelHandle}
+              className={`button`}
+              onClick={() => {
+                setIsEditing(true);
+                inputRef.current?.focus();
+              }}
             >
-              Zrušit
+              Upravit
             </button>
-          </div>
-        ) : (
-          <button
-            className={`button`}
-            onClick={() => {
-              setIsEditing(true);
-              inputRef.current?.focus();
-            }}
-          >
-            Upravit
-          </button>
-        )}
-      </div>
+          )}
+        </div>
 
-      <button
-        className={`button delete-button ${styles.button}`}
-        onClick={() => removeItemHandle(info.name)}
-      >
-        Smazat
-      </button>
+        <button
+          className={"button delete-button"}
+          onClick={() => removeItemHandle(info.name)}
+        >
+          Smazat
+        </button>
+      </div>
     </li>
   );
 }
