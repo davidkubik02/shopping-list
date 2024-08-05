@@ -4,6 +4,8 @@ import Item from "./item/Item";
 import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
+  addDropDownItem,
+  getDropDownItems,
   getList,
   List,
   listExists,
@@ -20,6 +22,10 @@ function ListItem() {
     useState<boolean>(false);
 
   const [isDataUpdated, setIsDataUpdated] = useState<boolean>(false);
+
+  const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
+
+  const [dropDownItems, setDropDownItems] = useState<string[]>([]);
 
   const { id } = useParams();
   useEffect(() => {
@@ -40,24 +46,45 @@ function ListItem() {
 
   const addHandle = (): void => {
     if (!id) return;
-    if (itemName) {
-      if (itemExists(itemName)) {
-        window.alert(`Položka "${itemName}" již existuje!`);
-      } else {
-        const list: List = {
-          name: id,
-          items: [...items, itemName],
-        };
-        updateListItems(list);
-        setItems(list.items);
-        setItemName("");
-      }
+    if (!itemName) {
+      window.alert(`Položka nemůže být prázdná!`);
+      return;
     }
-    if (inputRef.current) {
-      inputRef.current.focus();
+    if (itemExists(itemName)) {
+      window.alert(`Položka "${itemName}" již existuje!`);
+    } else {
+      const list: List = {
+        name: id,
+        items: [...items, itemName],
+      };
+      updateListItems(list);
+      setItems(list.items);
+      addDropDownItem(itemName);
+      setItemName("");
     }
   };
 
+  const blurHandle = () => {
+    setTimeout(() => {
+      setDropDownOpen(false);
+    }, 150);
+  };
+  const focusHandle = () => {
+    setTimeout(() => {
+      setDropDownOpen(true);
+    }, 150);
+  };
+  useEffect(() => {
+    setDropDownItems(getDropDownItems(itemName));
+  }, [dropDownOpen]);
+  const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setItemName(e.target.value);
+    setDropDownItems(getDropDownItems(e.target.value));
+  };
+
+  const dropDownClickHandle = (name: string) => {
+    setItemName(name);
+  };
   return (
     <div>
       <div className={`page-title ${styles.listItemTitle}`}>
@@ -67,7 +94,9 @@ function ListItem() {
         <div>
           <div className={styles.listItemAddWrapper}>
             <input
-              onChange={(e) => setItemName(e.target.value)}
+              onFocus={focusHandle}
+              onBlur={blurHandle}
+              onChange={changeHandle}
               value={itemName}
               type="text"
               className={`input ${styles.listItemInput}`}
@@ -79,6 +108,21 @@ function ListItem() {
             >
               Přidat
             </button>
+            {dropDownOpen && dropDownItems.length ? (
+              <div className={styles.dropDown}>
+                {dropDownItems.map((dropDownItem) => {
+                  return (
+                    <div
+                      onClick={() => dropDownClickHandle(dropDownItem)}
+                      key={dropDownItem}
+                      className={styles.dropDownRow}
+                    >
+                      {dropDownItem}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : undefined}
           </div>
           <ul>
             {items.map((name, index) => {

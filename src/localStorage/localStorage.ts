@@ -61,3 +61,21 @@ export const updateItemInList = (
   list.items = list.items.map((item) => (item === oldName ? newName : item));
   localStorage.setItem(list.name, JSON.stringify(list));
 };
+
+export const addDropDownItem = (name: string) => {
+  const storedItems = localStorage.getItem("items");
+  const items = storedItems ? JSON.parse(storedItems) : [];
+  if (items.includes(name)) return;
+  items.push(name);
+  console.log(items);
+  localStorage.setItem("items", JSON.stringify(items));
+};
+
+export const getDropDownItems = (name: string): string[] => {
+  const items = localStorage.getItem("items");
+  return items
+    ? JSON.parse(items).filter((item: string) =>
+        item.toLowerCase().includes(name.toLowerCase())
+      )
+    : [];
+};
