@@ -4,6 +4,7 @@ import {} from "react-router-dom";
 import ShopingLists from "../pages/shoping-lists/ShopingLists.tsx";
 import ListCreation from "../pages/list-creation/ListCreation.tsx";
 import ListItem from "../pages/list-item/ListItem.tsx";
+import NotFound from "../pages/not-found/NotFound.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <ListItem />,
       },
     ],
-    errorElement: <Link to="/">404 Not Found</Link>,
+    errorElement: <NotFound />,
   },
 ]);
 
