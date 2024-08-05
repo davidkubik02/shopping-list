@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "../listItem.module.css";
 import {
   deleteListItem,
@@ -16,7 +16,9 @@ function Item({
   updateData: (isDataUpdated: boolean) => void;
 }) {
   const [itemName, setitemName] = useState<string>(info.name);
-  const [isChanging, setIsChanging] = useState<boolean>(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const saveHandle = () => {
     if (!listName) {
@@ -28,7 +30,7 @@ function Item({
       return;
     }
     if (itemName === info.name) {
-      setIsChanging(false);
+      setIsEditing(false);
       return;
     }
 
@@ -37,7 +39,7 @@ function Item({
       return;
     }
     updateItemInList(listName, info.name, itemName);
-    setIsChanging(false);
+    setIsEditing(false);
     updateData(false);
   };
   const removeItemHandle = (itemName: string): void => {
@@ -47,46 +49,54 @@ function Item({
   };
 
   const cancelHandle = () => {
-    setIsChanging(false);
+    setIsEditing(false);
     setitemName(info.name);
   };
 
   return (
     <li className={styles.item}>
-      <button
-        className={`button ${styles.cancelButton}`}
-        onClick={() => removeItemHandle(info.name)}
-      >
-        x
-      </button>
-
-      {isChanging ? (
-        <div>
-          <button className={`button`} onClick={saveHandle}>
-            Uložit
-          </button>
-          <button className={`button`} onClick={cancelHandle}>
-            Zrušit
-          </button>
-        </div>
-      ) : (
-        <button
-          className={`button`}
-          onClick={() => {
-            setIsChanging(true);
-          }}
-        >
-          Upravit
-        </button>
-      )}
       <input
         className={styles.itemName}
         onChange={(e) => {
           setitemName(e.target.value);
         }}
+        ref={inputRef}
         value={itemName}
-        readOnly={!isChanging}
+        readOnly={!isEditing}
       />
+
+      <div className={styles.button}>
+        {isEditing ? (
+          <div className={styles.editButtons}>
+            <button className={`button`} onClick={saveHandle}>
+              Uložit
+            </button>
+            <button
+              className={`button ${styles.cancelButton}`}
+              onClick={cancelHandle}
+            >
+              Zrušit
+            </button>
+          </div>
+        ) : (
+          <button
+            className={`button`}
+            onClick={() => {
+              setIsEditing(true);
+              inputRef.current?.focus();
+            }}
+          >
+            Upravit
+          </button>
+        )}
+      </div>
+
+      <button
+        className={`button delete-button ${styles.button}`}
+        onClick={() => removeItemHandle(info.name)}
+      >
+        Smazat
+      </button>
     </li>
   );
 }

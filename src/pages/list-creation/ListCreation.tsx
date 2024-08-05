@@ -24,12 +24,12 @@ function ListCreation() {
 
   const createListHandle = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
-    if (id) {
-      editListHandle(id);
-      return;
-    }
     if (name.length === 0) {
       window.alert("Název nemůže být prázdný");
+      return;
+    }
+    if (id) {
+      editListHandle(id);
       return;
     }
     if (listExists(name)) {
