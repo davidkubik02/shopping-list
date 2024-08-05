@@ -10,21 +10,21 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Navigate to={"/shoping-lists"} replace={true} /> },
+      { path: "/", element: <Navigate to={"/shopping-list"} replace={true} /> },
       {
-        path: "/shoping-lists",
+        path: "/shopping-list",
         element: <ShopingLists />,
       },
       {
-        path: "/shoping-lists/new",
+        path: "/shopping-list/new",
         element: <ListCreation />,
       },
       {
-        path: "/shoping-lists/edit/:id",
+        path: "/shopping-list/edit/:id",
         element: <ListCreation />,
       },
       {
-        path: "/shoping-lists/:id",
+        path: "/shopping-list/:id",
         element: <ListItem />,
       },
     ],
